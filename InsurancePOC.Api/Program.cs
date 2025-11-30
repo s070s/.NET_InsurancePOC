@@ -1,35 +1,39 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using FluentValidation;
+using FluentValidation.AspNetCore;
+using InsurancePOC.Api.Data;
+using InsurancePOC.Shared.Dtos;
+using InsurancePOC.Shared.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure OpenAPI/Swagger for API documentation
-builder.Services.AddOpenApi();
+// Controllers
+builder.Services.AddControllers();
 
-// Configure Entity Framework with SQL Server
-// Connection string is stored in appsettings.json
-builder.Services.AddDbContext<InsurancePOC.Api.Data.AppDbContext>(
-options =>
+// OpenAPI / Swagger (Swashbuckle)
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// EF Core
+builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-// Register AutoMapper for DTO <-> Entity mappings
+// AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));
 
-// Register FluentValidation validators from the Shared project
+// FluentValidation
 builder.Services.AddValidatorsFromAssemblyContaining<CreateClientDtoValidator>();
-
-
+builder.Services.AddFluentValidationAutoValidation();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
+app.MapControllers();
 app.Run();
