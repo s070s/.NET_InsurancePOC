@@ -1,0 +1,145 @@
+# Build output
+bin/
+obj/
+**/bin/
+**/obj/
+artifacts/
+Publish/
+publish/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains IDEs
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+# Rider caches
+.idea/*
+
+# VS Code
+.vscode/
+.history/
+
+# NuGet
+*.nupkg
+
+# legacy packages folder
+packages/
+
+# local NuGet cache (some projects check this in incorrectly)
+.nuget/
+
+# Dotnet publish / single-file artifacts
+publish/
+*.msix
+*.zip
+
+# ASP.NET Core / app secrets
+# Keep environment-specific config and secrets out of repo
+appsettings..json
+secrets.json
+secrets.
+
+# user secrets folder (if present)
+secrets/
+
+# EF / database files
+*.db
+*.db-journal
+*.sqlite
+*.mdf
+*.ldf
+
+# Logs, test results, coverage
+logs/
+.log
+TestResults/
+coverage/
+coverage.
+*.coverage
+*.trx
+
+# Test / test tooling
+.vstest/
+nunit-*.xml
+coverage.opencover.xml
+
+# Temporary / lock files
+*.tmp
+*.temp
+*.lock
+*.pid
+*.seed
+*.cache
+*.bak
+.old
+~$
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Rider / ReSharper
+_ReSharper*/
+.ReSharper/
+_ReSharper*/
+*.DotSettings.user
+
+# Build artifacts from CI/tools
+*.publishsettings
+*.deployment
+deploy/
+
+# Package managers & front-end
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log
+
+# IDE / editor backups
+*.ide
+*.sublime-workspace
+*.sublime-project
+
+# Debug symbols, compiled files
+*.pdb
+*.exe
+*.dll
+*.so
+*.dylib
+*.class
+*.jar
+
+# Generated files
+project.lock.json
+project.fragment.lock.json
+*.generated.cs
+
+# Local tool/lock files
+.dotnet_tool_restore.json
+.dotnet/
+tools/
+tools-local/
+
+# Coverage / profiling / analysis
+*.coverage
+*.coveragexml
+*.prof
+*.loghtml
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.cache
