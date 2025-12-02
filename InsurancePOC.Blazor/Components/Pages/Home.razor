@@ -1,7 +1,96 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<!-- Hero Section -->
+<div class="hero-section text-center py-5 mb-5">
+    <div class="container">
+        <h1 class="display-3 fw-bold text-primary mb-3">
+            <i class="bi bi-shield-check"></i> Insurance Management System
+        </h1>
+        <p class="lead text-muted mb-4">
+            Manage your clients and policies with ease. A comprehensive solution for modern insurance management.
+        </p>
+        <a href="/insurance" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow">
+            <i class="bi bi-arrow-right-circle"></i> View Insurance Data
+        </a>
+    </div>
+</div>
 
-Welcome to your new app.
+<!-- Features Section -->
+<div class="container mb-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm hover-lift">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon bg-primary bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 4rem; height: 4rem;">
+                        <i class="bi bi-people-fill fs-2"></i>
+                    </div>
+                    <h3 class="h5 fw-bold mb-3">Client Management</h3>
+                    <p class="text-muted mb-0">
+                        Efficiently manage client information, track details, and maintain comprehensive records.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm hover-lift">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon bg-success bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 4rem; height: 4rem;">
+                        <i class="bi bi-file-earmark-text-fill fs-2"></i>
+                    </div>
+                    <h3 class="h5 fw-bold mb-3">Policy Tracking</h3>
+                    <p class="text-muted mb-0">
+                        Monitor policy lifecycles, premiums, and coverage details in one centralized location.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm hover-lift">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon bg-info bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 4rem; height: 4rem;">
+                        <i class="bi bi-graph-up-arrow fs-2"></i>
+                    </div>
+                    <h3 class="h5 fw-bold mb-3">Real-time Updates</h3>
+                    <p class="text-muted mb-0">
+                        Access live data and insights to make informed decisions quickly and effectively.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Section -->
+<div class="bg-light py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 mb-4">
+                <div class="stat-item">
+                    <h2 class="display-5 fw-bold text-primary">100%</h2>
+                    <p class="text-muted">Secure</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-item">
+                    <h2 class="display-5 fw-bold text-success">24/7</h2>
+                    <p class="text-muted">Available</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-item">
+                    <h2 class="display-5 fw-bold text-info">Fast</h2>
+                    <p class="text-muted">Performance</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-item">
+                    <h2 class="display-5 fw-bold text-warning">Easy</h2>
+                    <p class="text-muted">To Use</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,6 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+// Add HttpClient for API calls (use configured ApiBaseUrl or localhost default)
+var apiBase = builder.Configuration.GetValue<string>("ApiBaseUrl") ?? "http://localhost:5226";
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(apiBase) });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -16,7 +20,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+// Comment out HTTPS redirection for development to avoid the warning
+// app.UseHttpsRedirection();
 
 
 app.UseAntiforgery();
