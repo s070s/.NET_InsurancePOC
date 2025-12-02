@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FluentValidation;
-using FluentValidation.AspNetCore;
+using AutoMapper;
 using InsurancePOC.Api.Data;
+using InsurancePOC.Api.Models;
 using InsurancePOC.Shared.Dtos;
 using InsurancePOC.Shared.Validation;
+using Microsoft.AspNetCore.Http.HttpResults;
+using InsurancePOC.Api.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Controllers
-builder.Services.AddControllers();
 
 // OpenAPI / Swagger (Swashbuckle)
 builder.Services.AddEndpointsApiExplorer();
@@ -25,7 +25,6 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 // FluentValidation
 builder.Services.AddValidatorsFromAssemblyContaining<CreateClientDtoValidator>();
-builder.Services.AddFluentValidationAutoValidation();
 
 var app = builder.Build();
 
@@ -35,5 +34,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapControllers();
+// Home endpoint
+app.MapGet("/", () => Results.Ok("Hello from InsurancePOC API"))
+   .WithName("Home")
+   .WithSummary("Health / home endpoint")
+   .Produces<string>(StatusCodes.Status200OK);
+
+// Map endpoints moved to controllers
+app.MapClientEndpoints();
+app.MapPolicyEndpoints();
+
 app.Run();
